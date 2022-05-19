@@ -11,20 +11,21 @@ export const VariableInput: React.FC<Props> = ({ variableKey }) => {
   if (!variable) {
     return null;
   }
-  const onChange = (index: number, value: Variable) => {
+  const onChange = (variableKey: string, value: Variable) => {
     setVariables((curr) => {
       const newArr = [...curr];
-      newArr[index] = value;
+      const itemIndex = newArr.findIndex((v) => v.key === variableKey);
+      newArr[itemIndex] = value;
       return newArr;
     });
   };
 
   return (
     <div>
-      <input value={variable.label} onChange={(e) => onChange(index, { ...variable, label: e.target.value })} />
+      <input value={variable.label} onChange={(e) => onChange(variableKey, { ...variable, label: e.target.value })} />
       <select
         value={`${variable.value}`}
-        onChange={(e) => onChange(index, { ...variable, value: e.target.value === 'true' })}
+        onChange={(e) => onChange(variableKey, { ...variable, value: e.target.value === 'true' })}
       >
         <option value='true'>True</option>
         <option value='false'>False</option>

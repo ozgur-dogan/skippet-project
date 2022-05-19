@@ -14,12 +14,12 @@ export const VariablesView = () => {
   };
 
   return (
-    <div>
+    <div style={{ marginBottom: 30 }}>
       <div>Length: {variables.length}</div>
       {variables.map(({ key }) => (
         <VariableInput variableKey={key} key={key} />
       ))}
-      <button onClick={onAdd}>Add</button>
+      <button onClick={onAdd}>Add expression</button>
     </div>
   );
 };
