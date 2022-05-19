@@ -19,7 +19,7 @@ export const VariablesView = () => {
       {variables.map(({ key }) => (
         <VariableInput variableKey={key} key={key} />
       ))}
-      <button onClick={onAdd}>Add expression</button>
+      <button onClick={onAdd}>Add Variable</button>
     </div>
   );
 };
